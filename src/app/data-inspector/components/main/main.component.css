@@ -1,0 +1,9 @@
+.box {
+    background-color: aqua;
+    text-align: center;
+}
+
+.container {
+    max-height: calc(100vh - 2*64px);
+    height: calc(100vh - 2*64px);
+}
