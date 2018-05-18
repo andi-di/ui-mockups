@@ -11,6 +11,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './components/main/main.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { InspectDialogComponent } from './components/main/inspect-dialog/inspect-dialog.component';
+import { FormComponent } from './components/main/form/form.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -28,10 +31,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NavigationComponent,
     PageNotFoundComponent,
     MainComponent,
+    InspectDialogComponent,
+    FormComponent,
+  ],
+  entryComponents: [
+    InspectDialogComponent
   ],
   exports: [DataInspectorComponent],
   providers: [
-
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ]
 })
 export class DataInspectorModule { }
