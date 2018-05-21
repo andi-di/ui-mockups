@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   subscribedTopics: Array<String> = [];
   topicInstances: Array<String> = [];
   currentTopic: String;
+  currentInstance: String;
 
   ngOnInit() {
     for (let index = 1; index < 21; index++) {
@@ -33,12 +34,15 @@ export class MainComponent implements OnInit {
   }
 
   openDialog(item): void {
-    let dialogRef = this.dialog.open(InspectDialogComponent, {
-      width: '90vw',
-      data: {
-        name: item
-      }
-    });
+    // let dialogRef = this.dialog.open(InspectDialogComponent, {
+    //   width: '90vw',
+    //   data: {
+    //     name: item
+    //   }
+    // });
+    if(!this.currentInstance || this.currentInstance != item) {
+      this.currentInstance = item;
+    }
   }
 
   inspectTopic(topic: String){

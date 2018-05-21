@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'diu-form',
@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
 
   constructor() { }
-
+  @Input() instance: String;
   ngOnInit() {
+    
   }
 
 }
