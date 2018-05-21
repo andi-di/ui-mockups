@@ -34,7 +34,10 @@ export class MainComponent implements OnInit {
 
   openDialog(item): void {
     let dialogRef = this.dialog.open(InspectDialogComponent, {
-      width: '90vw'
+      width: '90vw',
+      data: {
+        name: item
+      }
     });
   }
 
