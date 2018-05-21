@@ -1,25 +1,22 @@
 <mat-card style="margin: 0px; padding: 0px;">
-<mat-toolbar color="primary" class="md-elevation-z15">
-  <mat-toolbar-row>
-    <mat-icon>loupe</mat-icon>
-    <span>Data Inspector UI</span>
-    <div class="menubar">
-      <button mat-button routerLink="/main" routerLinkActive="active">
-        <strong>main</strong>
-      </button>
-      <button mat-button>
+  <mat-toolbar color="primary" class="md-elevation-z15">
+    <mat-toolbar-row>
+      <mat-icon>loupe</mat-icon>
+      <span>Data Inspector UI</span>
+      <div class="menubar">
+        <button mat-button routerLink="/main" routerLinkActive="active">
+          <strong>main</strong>
+        </button>
         <button mat-button routerLink="/nothing" routerLinkActive="active">
           <strong>not found</strong>
         </button>
+      </div>
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
       </button>
-    </div>
-    <button mat-icon-button>
-      <mat-icon>settings</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </mat-card>
 <div class="content">
-    <router-outlet class="innerContent"></router-outlet>
+  <router-outlet class="innerContent"></router-outlet>
 </div>
-

@@ -10,9 +10,11 @@ import { FormComponent } from '../form/form.component';
 export class InspectDialogComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<FormComponent>) { }
+    public dialogRef: MatDialogRef<InspectDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+
   }
 
 }

@@ -19,16 +19,17 @@
     <mat-list>
       <mat-list-item *ngFor="let item of subscribedTopics">
         <p class="textElement">{{item}}</p>
-        <button mat-raised-button (click)="unSubscribeTopic(item)">Subscribe</button>
+        <button mat-raised-button (click)="inspectTopic(item)">Show</button>
+        <button mat-raised-button (click)="unSubscribeTopic(item)">Unsubscribe</button>
       </mat-list-item>
     </mat-list>
   </mat-card>
 
-  <!-- Row 2 -->
+  <!-- Row 3 -->
   <mat-card class="list" fxFlex="50%">
     <mat-card-title class="listhead">Topic Instances</mat-card-title>
     <mat-list>
-      <mat-list-item *ngFor="let item of allTopics">
+      <mat-list-item *ngFor="let item of topicInstances">
         <p class="textElement">{{item}}</p>
         <button mat-raised-button (click)="openDialog()">Inspect</button>
       </mat-list-item>

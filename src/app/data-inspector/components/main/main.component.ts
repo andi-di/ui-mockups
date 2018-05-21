@@ -5,7 +5,7 @@ import { InspectDialogComponent } from './inspect-dialog/inspect-dialog.componen
 @Component({
   selector: 'diu-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
 
@@ -13,6 +13,8 @@ export class MainComponent implements OnInit {
 
   allTopics: Array<String> = [];
   subscribedTopics: Array<String> = [];
+  topicInstances: Array<String> = [];
+  currentTopic: String;
 
   ngOnInit() {
     for (let index = 1; index < 21; index++) {
@@ -36,4 +38,17 @@ export class MainComponent implements OnInit {
     });
   }
 
+  inspectTopic(topic: String){
+    if(!this.currentTopic || this.currentTopic != topic) {
+      this.currentTopic = topic;
+      this.buildInstanceList();
+    }
+  }
+
+  buildInstanceList() {
+    this.topicInstances.splice(0, this.topicInstances.length);
+    for (let index = 1; index < 21; index++) {
+      this.topicInstances.push(this.currentTopic + " Instance "+index.toString());
+    }
+  }
 }
