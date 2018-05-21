@@ -16,10 +16,14 @@ export class MainComponent implements OnInit {
   topicInstances: Array<String> = [];
   currentTopic: String;
   currentInstance: String;
+  expanded = true;
 
   ngOnInit() {
     for (let index = 1; index < 21; index++) {
       this.allTopics.push("Topic "+index.toString());
+      if(index < 8) {
+        this.subscribedTopics.push("Topic "+index.toString())
+      }
     }
   }
 

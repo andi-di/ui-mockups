@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav [mode]="'push'">
 
     <!-- Row 1 -->
-    <mat-card class="list">
+    <mat-card class="listSidenav">
       <mat-card-title class="listhead">all Topics</mat-card-title>
       <mat-list>
         <mat-list-item class="listItem" *ngFor="let item of allTopics">
@@ -22,34 +22,40 @@
       <button mat-button (click)="sidenav.toggle()">Show Sidebar</button>
     </mat-toolbar>
     <div class="container" fxLayout="row" fxLayoutGap="5px">
-      <div class="container" fxLayout="column" fxLayoutGap="5px" fxFlex="50%">
-
-        <!-- Row 2 -->
-        <mat-card class="list" fxFlex="50%">
-          <mat-card-title class="listhead">subscribed Topics</mat-card-title>
-          <mat-list>
-            <mat-list-item *ngFor="let item of subscribedTopics">
-              <p class="textElement">{{item}}</p>
-              <button mat-raised-button (click)="inspectTopic(item)">Show</button>
-              <button mat-raised-button (click)="unSubscribeTopic(item)">Unsubscribe</button>
-            </mat-list-item>
-          </mat-list>
-        </mat-card>
-
-        <!-- Row 3 -->
-        <mat-card class="list" fxFlex="50%">
-          <mat-card-title class="listhead">Topic Instances</mat-card-title>
-          <mat-list>
-            <mat-list-item *ngFor="let item of topicInstances">
-              <p class="textElement">{{item}}</p>
-              <button mat-raised-button (click)="openDialog(item)">Inspect</button>
-            </mat-list-item>
-          </mat-list>
-        </mat-card>
-      </div>
       <mat-card class="list" fxFlex="50%">
-          <diu-form *ngIf="currentInstance" [instance]="currentInstance">
-            </diu-form>
+        <mat-accordion>
+          <mat-expansion-panel [expanded]="expanded">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                subscribed Topics
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list class="innerList">
+              <mat-list-item *ngFor="let item of subscribedTopics">
+                <p class="textElement">{{item}}</p>
+                <button mat-raised-button (click)="inspectTopic(item)">Show</button>
+                <button mat-raised-button (click)="unSubscribeTopic(item)">Unsubscribe</button>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Topic Instances
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list class="innerList">
+              <mat-list-item *ngFor="let item of topicInstances">
+                <p class="textElement">{{item}}</p>
+                <button mat-raised-button (click)="openDialog(item)">Inspect</button>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card>
+      <mat-card class="list" fxFlex="50%">
+        <diu-form *ngIf="currentInstance" [instance]="currentInstance">
+        </diu-form>
       </mat-card>
     </div>
   </mat-sidenav-content>
