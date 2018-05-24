@@ -21,9 +21,6 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     for (let index = 1; index < 21; index++) {
       this.allTopics.push("Topic "+index.toString());
-      if(index < 8) {
-        this.subscribedTopics.push("Topic "+index.toString())
-      }
     }
   }
 
